@@ -42,10 +42,14 @@
       padding-left: 15px;
       margin-top: 5px;
     }
-    .child-layers label {
-      display: block;
-      cursor: pointer;
-    }
+	.child-layers label {
+	  display: flex;       /* Aligns checkbox and icon properly */
+	  align-items: center; /* Centers items vertically */
+	  gap: 8px;            /* Adds space between checkbox and icon */
+	  margin-bottom: 6px;  /* Increases vertical spacing between rows */
+	  line-height: 1;    /* Adjusts line height for better readability */
+	}
+
 	
 
 
@@ -67,6 +71,7 @@
 		width: 20px;
 		height: 20px;
 		margin-right: 10px;
+		
 	}
 
 	.tartu-university { background: #e60092; }
@@ -131,61 +136,128 @@
 </head>
 <body>
   <div id="map"></div>
-  <div class="controls">
-    <div class="parent-header" onclick="toggleSection('exciseLayers')">Excise +</div>
-    <div id="exciseLayers" class="child-layers">
-      <label><input type="checkbox" onclick="toggleLayer(utGymLayer)"> University Gym</label>
-      <label><input type="checkbox" onclick="toggleLayer(outDoorGymLayer)"> Outdoor Gym</label>
-	  <label><input type="checkbox" onclick="toggleLayer(sportParkLayer)"> SportPark</label>
 
-    </div>
-
-
-    <div class="parent-header" onclick="toggleSection('studyLayers')">Study Areas +</div>
-    <div id="studyLayers" class="child-layers">
-      <label><input type="checkbox" onclick="toggleLayer(utLibraryLayer)"> University Library</label>
-      <label><input type="checkbox" onclick="toggleLayer(libraryLayer)"> Library</label>
-      <label><input type="checkbox" onclick="toggleLayer(utStudyAreasLayer)"> Student Lounges</label>
-    </div>
-
-    <div class="parent-header" onclick="toggleSection('eatingLayers')">Eating Areas +</div>
-    <div id="eatingLayers" class="child-layers">
-      <label><input type="checkbox" onclick="toggleLayer(microwavesLayer)"> Student Breakroom</label>
-	  <label><input type="checkbox" onclick="toggleLayer(RüütliStreetLayer)"> Rüütli Street</label>
-      <label><input type="checkbox" onclick="toggleLayer(foodSharingLayer)"> Food Sharing</label>
-	  
-    </div>
-	
-	
-	<div class="parent-header" onclick="toggleSection('cultureLayers')">Cultures +</div>
-    <div id="cultureLayers" class="child-layers">
-      <label><input type="checkbox" onclick="toggleLayer(utMuseumLayer)"> University Museum</label>
-      <label><input type="checkbox" onclick="toggleLayer(museumLayer)"> Museum</label>
-	  <label><input type="checkbox" onclick="toggleLayer(AparaaditehasCulturalCenterLayer)"> Aparaaditehas Cultural Center</label>
-
-	  <label><input type="checkbox" onclick="toggleLayer(nationalArchiveLayer)"> National Archives of Estonia</label>
-	  
-	  <!-- <label><input type="checkbox" onclick="toggleLayer(exhibitionLayer)"> Exhibitation</label> -->
-    </div>
-	
-	
-	<div class="parent-header" onclick="toggleSection('mentalHealthLayers')">Mental Health +</div>
-    <div id="mentalHealthLayers" class="child-layers">
-	  <label><input type="checkbox" onclick="toggleLayer(utCounsellingCentreLayer)"> UT Counselling Centre</label>
-
-      <label><input type="checkbox" onclick="toggleLayer(hospitalLayer)"> Hospital</label>
-      <label><input type="checkbox" onclick="toggleLayer(privateCounsellingLayer)"> Private Counselling Centres/Clinics</label>
-    </div>
-	
-	
-	
-	
-		<button onclick="resetView()">Default</button>
-
-	
-	
+<div class="controls">  
+  <div class="parent-header" onclick="toggleSection('exciseLayers')">Excise +</div>
+  <div id="exciseLayers" class="child-layers">
+    <label>
+      <input type="checkbox" onclick="toggleLayer(utGymLayer)">
+      <span style="background-color: red; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-dumbbell"></i>
+      </span> &nbsp;University Gym
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(outDoorGymLayer)">
+      <span style="background-color: green; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-dumbbell"></i>
+      </span> &nbsp;Outdoor Gym
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(sportParkLayer)">
+      <span style="background-color: blue; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-dumbbell"></i>
+      </span> &nbsp;Sport Park
+    </label>
   </div>
-  
+
+  <div class="parent-header" onclick="toggleSection('studyLayers')">Study Areas +</div>
+  <div id="studyLayers" class="child-layers">
+    <label>
+      <input type="checkbox" onclick="toggleLayer(utLibraryLayer)">
+      <span style="background-color: darkred; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-book"></i>
+      </span> &nbsp;University Library
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(libraryLayer)">
+      <span style="background-color: orange; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-book"></i>
+      </span> &nbsp;Library
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(utStudyAreasLayer)">
+      <span style="background-color: darkgreen; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-book-open-reader"></i>
+      </span> &nbsp;Student Lounges
+    </label>
+  </div>
+
+  <div class="parent-header" onclick="toggleSection('eatingLayers')">Eating Areas +</div>
+  <div id="eatingLayers" class="child-layers">
+    <label>
+      <input type="checkbox" onclick="toggleLayer(microwavesLayer)">
+      <span style="background-color: cadetblue; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-utensils"></i>
+      </span> &nbsp;Student Breakroom
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(RüütliStreetLayer)">
+      <span style="background-color: green; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-martini-glass"></i>
+      </span> &nbsp;Rüütli Street
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(foodSharingLayer)">
+      <span style="background-color: blue; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-burger"></i>
+      </span> &nbsp;Food Sharing
+    </label>
+  </div>
+
+  <div class="parent-header" onclick="toggleSection('cultureLayers')">Cultures +</div>
+  <div id="cultureLayers" class="child-layers">
+    <label>
+      <input type="checkbox" onclick="toggleLayer(utMuseumLayer)">
+      <span style="background-color: green; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-landmark"></i>
+      </span> &nbsp;University Museum
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(museumLayer)">
+      <span style="background-color: purple; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-landmark"></i>
+      </span> &nbsp;Museum
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(AparaaditehasCulturalCenterLayer)">
+      <span style="background-color: darkmagenta; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-people-group"></i>
+      </span> &nbsp;Aparaaditehas Cultural Center
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(nationalArchiveLayer)">
+      <span style="background-color: cadetblue; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-archive"></i>
+      </span> &nbsp;National Archives of Estonia
+    </label>
+  </div>
+
+  <div class="parent-header" onclick="toggleSection('mentalHealthLayers')">Mental Health +</div>
+  <div id="mentalHealthLayers" class="child-layers">
+    <label>
+      <input type="checkbox" onclick="toggleLayer(hospitalLayer)">
+      <span style="background-color: red; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-hospital"></i>
+      </span> &nbsp;Hospital
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(privateCounsellingLayer)">
+      <span style="background-color: orange; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-hospital"></i>
+      </span> &nbsp;Private Counselling Centres/Clinics
+    </label>
+    <label>
+      <input type="checkbox" onclick="toggleLayer(utCounsellingCentreLayer)">
+      <span style="background-color: lightblue; color: white; border-radius: 2px; padding: 3px 3px;">
+        <i class="fas fa-circle-info"></i>
+      </span> &nbsp;UT Counselling Center
+    </label>
+  </div>
+
+  <button onclick="resetView()">Default</button>
+</div>
+
+
   
   
   
@@ -745,7 +817,7 @@
     var AparaaditehasCulturalCenterLayer = L.geoJson(json_apachtureaparctule_1, {
 	  pointToLayer: function (feature, latlng) {
 		var awesomeMarker = L.AwesomeMarkers.icon({
-		  icon: 'handshake', markerColor: 'darkpurple', prefix: 'fa', iconColor: 'white'
+		  icon: 'people-group', markerColor: 'darkpurple', prefix: 'fa', iconColor: 'white'
 		});
 		return L.marker(latlng, { icon: awesomeMarker })
 		  .bindPopup(`<b>${feature.properties.name}</b>`);
@@ -792,7 +864,7 @@
 	    var privateCounsellingLayer = L.geoJson(private_counsellingsGeoJSON, {
 	  pointToLayer: function (feature, latlng) {
 		var awesomeMarker = L.AwesomeMarkers.icon({
-		  icon: 'users', markerColor: 'orange', prefix: 'fa', iconColor: 'white'
+		  icon: 'hospital', markerColor: 'orange', prefix: 'fa', iconColor: 'white'
 		});
 		return L.marker(latlng, { icon: awesomeMarker })
 		  .bindPopup(`<b>${feature.properties.Name}</b><br>${feature.properties.Address}`);
